@@ -6,4 +6,8 @@ class ShoppingListItem {
     this.description = description;
     this.is_done = undefined;
   }
+
+  check() {
+    this.is_done = true;
+  }
 }
