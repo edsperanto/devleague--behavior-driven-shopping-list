@@ -43,7 +43,7 @@ describe('ShoppingListItem', () => {
 
   it('should have \'render\' method that returns html formatting string', () => {
     expect(myItem.render).to.be.a('function');
-    expect(myItem.render()).to.equal(`<li class="completed_${myItem.is_done}"><span>${myItem.name}</span> <span>${myItem.description}</span></li>`);
+    expect(myItem.render()).to.equal(`<li class='completed_${myItem.is_done}'><span>${myItem.name}</span> <span>${myItem.description}</span></li>`);
   });
 
 });
