@@ -4,11 +4,7 @@ const expect = chai.expect;
 
 describe('ShoppingListItem', () => {
 
-  let myItem;
-
-  beforeEach(() => {
-    myItem = new ShoppingListItem('apple', 'the fruit');
-  });
+  let myItem = new ShoppingListItem('apple', 'the fruit');
 
   it('should be a class', () => {
     expect(ShoppingListItem).to.be.a('function');
@@ -43,7 +39,17 @@ describe('ShoppingListItem', () => {
 
   it('should have \'render\' method that returns html formatting string', () => {
     expect(myItem.render).to.be.a('function');
-    expect(myItem.render()).to.equal(`<li class="completed_${myItem.is_done}"><span>${myItem.name}</span> <span>${myItem.description}</span></li>`);
+    expect(myItem.render()).to.equal(`<li class='completed_${myItem.is_done}'><span>${myItem.name}</span> <span>${myItem.description}</span></li>`);
+  });
+
+});
+
+describe('ShoppingList', () => {
+
+  let myList = new ShoppingList();
+
+  it('should be a class', () => {
+    expect(ShoppingList).to.be.a('function');
   });
 
 });
