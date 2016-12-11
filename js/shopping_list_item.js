@@ -1,5 +1,4 @@
-// jshint esversion: 6
-
+/* jshint esversion: 6 */
 class ShoppingListItem {
   constructor(name, description) {
     this.name = name;
