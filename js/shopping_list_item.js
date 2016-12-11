@@ -1,5 +1,5 @@
 // jshint esversion: 6
+/*class ShoppingListItem {
 
-class ShoppingListItem {
 
-}
+}*/
