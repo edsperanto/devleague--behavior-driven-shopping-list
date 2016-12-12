@@ -26,7 +26,7 @@ class ShoppingList {
   }
 
   render() {
-    let liList;
+    let liList = '';
     for (let i = 0; i < this.items.length; i ++ ) {
       liList += this.items[i].render();
     }
