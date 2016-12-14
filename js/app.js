@@ -12,6 +12,15 @@ function addToShoppingList() {
   theShoppingList.addItem(newShoppingListItem);
   let outPutList = theShoppingList.render();
   document.getElementById('content').innerHTML = outPutList;
+
+  let checkBoxNodeList = document.querySelectorAll('.check-box');
+
+  for ( let i = 0; i < checkBoxNodeList.length; i ++ ) {
+    console.log(checkBoxNodeList[i]);
+    checkBoxNodeList[i].addEventListener('change', function() {
+      console.log('IM WORKING CHEE!');
+    });
+  }
 }
 
 //event listener for button to add things to the shopping list
