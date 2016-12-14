@@ -47,7 +47,7 @@ div {
   font-family: monospace;
   font-size: 15px;
   padding: 4px;
-  color: white;
+  color: black;
   margin-left: 10px;
   margin-bottom: 5px;
   width: 175px;
@@ -67,5 +67,21 @@ button {
 
 #content {
   display: block;
-  background-color: red;
+  list-style: none;
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+ul {
+  padding: 0px;
+}
+
+li {
+  background-color: white;
+  list-style: none;
+  border-style: solid;
+  border-width: 0px;
+  border-bottom-width: 1px;
+  border-color: black;
+  padding: 10px;
 }
