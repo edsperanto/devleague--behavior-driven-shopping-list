@@ -6,8 +6,8 @@ const theShoppingList = new ShoppingList(); //instance of ShoppingList class
 
 //function to add things to shopping list and re-render to the browser page
 function addToShoppingList() {
-  let item = document.getElementById('input-form').elements[0].value;
-  let description = document.getElementById('input-form').elements[1].value;
+  let item = document.getElementById('item-name').value;
+  let description = document.getElementById('item-desc').value;
   let newShoppingListItem = new ShoppingListItem(item, description);
   theShoppingList.addItem(newShoppingListItem);
   let outPutList = theShoppingList.render();
