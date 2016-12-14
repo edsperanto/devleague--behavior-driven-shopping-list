@@ -2,17 +2,17 @@
 const theShoppingList = new ShoppingList();
 
 function changeCheckedStatus(idx, checkbox) {
-  if ( checkbox.checked === true ) {
+  if ( checkbox.checked ) {
     theShoppingList.items[idx].check();
   } else {
     theShoppingList.items[idx].uncheck();
   }
+  reRender();
 }
 
 function removeItemButtonClicked(idx) {
   theShoppingList.removeItem(theShoppingList.items[idx]);
-  document.getElementById('content').innerHTML = theShoppingList.render();
-  addDatasetIdxToLiElements();
+  reRender();
 }
 
 function addToShoppingList() {
@@ -20,12 +20,11 @@ function addToShoppingList() {
   let description = document.getElementById('item-desc').value;
   let newShoppingListItem = new ShoppingListItem(item, description);
   theShoppingList.addItem(newShoppingListItem);
-  let outPutList = theShoppingList.render();
-  document.getElementById('content').innerHTML = outPutList;
-  addDatasetIdxToLiElements();
+  reRender();
 }
 
-function addDatasetIdxToLiElements() {
+function reRender() {
+  document.getElementById('content').innerHTML = theShoppingList.render();
   let liElements = document.querySelectorAll('li');
   for ( let i = 0; i < liElements.length; i ++ ) {
     liElements[i].dataset.idx = i;
