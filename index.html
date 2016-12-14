@@ -3,14 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>BDD Shopping List</title>
+  <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 </head>
 <body>
 
-  <form id='input-form'>
-    Item: <input type="text" placeholder="Apple"><br>
-    Description: <input type="text" placeholder="Tasty fruit"><br>
-  </form>
-  <button id='add_shopping_list_item_button'>Add to Shopping List</button>
+  <div id='title'>Shopping List</div>
+
+  <div id='input-form'>
+    <div class='form-label'>Item</div><input type="text" placeholder='Apple' id='item-name'><br>
+    <div class='form-label'>Description</div><input type="text" placeholder='Tasty fruit' id='item-desc'><br>
+    <button id='add_shopping_list_item_button'>Add to Shopping List</button>
+  </div>
+
 
   <div id="content">
 
