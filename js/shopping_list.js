@@ -16,20 +16,20 @@ class ShoppingList {
   removeItem(shoppinglistitem) {
     if ( this.items.indexOf(shoppinglistitem) > -1 ) {
       this.items.splice(this.items.indexOf(shoppinglistitem), 1);
-    } else if ( shoppinglistitem instanceof ShoppingListItem === false ) {
-      throw new Error('Not a Shopping list item');
     } else {
-      if ( shoppinglistitem === undefined && this.items.length >= 1 ) {
+      if ( shoppinglistitem === undefined ) {
         this.items.pop();
+      } else {
+        throw new Error('Not a Shopping list item');
       }
     }
   }
 
   render() {
-    let liList;
+    let liList = "";
     for (let i = 0; i < this.items.length; i ++ ) {
       liList += this.items[i].render();
     }
-    return `<ul>${liList}</ul`;
+    return `<ul>${liList}</ul>`;
   }
 }

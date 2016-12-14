@@ -78,12 +78,12 @@ describe('ShoppingList', () => {
     myList.addItem(newItem4);
     myList.removeItem();
     expect(myList.items.length).to.equal(2);
-    (() => (myList.removeItem(newItem5))).should.throw(Error);
+    (() => (myList.removeItem(newItem5))).should.throw('Not a Shopping list item');
   });
 
   it('should have \'render\' method', () => {
     expect(myList.render).to.be.a('function');
-    expect(myList.render()).to.equal(`<ul>${myList.items[0].render()}${myList.items[1].render()}${myList.items[2].render()}</ul>`);
+    expect(myList.render()).to.equal(`<ul>${myList.items[0].render()}${myList.items[1].render()}</ul>`);
   });
 
 });
