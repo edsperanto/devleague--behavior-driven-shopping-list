@@ -22,6 +22,10 @@ describe('ShoppingList', () => {
     expect(myList.items.length).to.equal(0);
   });
 
+  it('should initialize \'items\' as an array', () => {
+    expect(myList.items.push).to.be.a('function');
+  });
+
   it('should have \'addItem\' method', () => {
     myList.addItem(newItem1);
     expect(myList.addItem).to.be.a('function');
