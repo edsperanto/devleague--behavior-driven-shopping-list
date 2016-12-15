@@ -28,8 +28,6 @@ function reRender() {
   let liElements = document.querySelectorAll('li');
   for ( let i = 0; i < liElements.length; i ++ ) {
     liElements[i].dataset.idx = i;
-  }
-  for(let i = 0; i < theShoppingList.items.length; i++) {
     liElements[i].style.textDecoration = (theShoppingList.items[i].is_done) ? ('line-through') : ('none');
   }
 }
