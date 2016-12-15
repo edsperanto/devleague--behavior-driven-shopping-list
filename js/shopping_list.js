@@ -30,7 +30,6 @@ class ShoppingList {
     for (let i = 0; i < this.items.length; i ++ ) {
       liList += this.items[i].render();
     }
-
     return `<ul>${liList}</ul>`;
   }
 }

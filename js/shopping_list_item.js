@@ -15,8 +15,7 @@ class ShoppingListItem {
   }
 
   render() {
-
-
-    return `<li class='completed_${this.is_done}'><input class='check-box' type='checkbox'><span>${this.name}</span> <span>${this.description}</span><button class='x-button'>x</button></li>`;
+    let checking = (this.is_done) ? ("checked = 'checked' ") : ("");
+    return `<li class='completed_${this.is_done}'><input class='check-box' type='checkbox' ${checking}onchange="changeCheckedStatus(this.parentElement.getAttribute('data-idx'), document.querySelectorAll('.check-box')[this.parentElement.getAttribute('data-idx')])")><span>${this.name}</span> <span class='desc'>${this.description}</span><button class='x-button' onclick="removeItemButtonClicked(this.parentElement.getAttribute('data-idx'))">[ x ]</button></li>`;
   }
 }
