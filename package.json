@@ -4,7 +4,7 @@
   "description": "Fork and clone this project.   Goal: Create a working, single page app.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --watch"
+    "test": "echo 'run http-server or live-server then open http://localhost:8080/tests.html to run tests!'"
   },
   "repository": {
     "type": "git",
