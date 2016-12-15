@@ -47,14 +47,22 @@ describe('ShoppingList', () => {
   });
 
   it('should have \'render\' method', () => {
-    myList.addItem(newItem1);
-    myList.removeItem(newItem1);
-    myList.addItem(newItem2);
-    myList.addItem(newItem3);
-    myList.addItem(newItem4);
-    myList.removeItem();
     expect(myList.render).to.be.a('function');
-    expect(myList.render()).to.equal(`<ul>${myList.items[0].render()}${myList.items[1].render()}</ul>`);
+    expect(myList.render()).to.equal("<ul></ul>");
+    myList.addItem(newItem1);
+    expect(myList.render()).to.equal(`<ul>${newItem1.render()}</ul>`);
+    myList.removeItem(newItem1);
+    expect(myList.render()).to.equal("<ul></ul>");
+    myList.addItem(newItem2);
+    expect(myList.render()).to.equal(`<ul>${newItem2.render()}</ul>`);
+    myList.addItem(newItem3);
+    expect(myList.render()).to.equal(`<ul>${newItem2.render()}${newItem3.render()}</ul>`);
+    myList.addItem(newItem4);
+    expect(myList.render()).to.equal(`<ul>${newItem2.render()}${newItem3.render()}${newItem4.render()}</ul>`);
+    myList.removeItem();
+    expect(myList.render()).to.equal(`<ul>${newItem2.render()}${newItem3.render()}</ul>`);
+    myList.items[0].check();
+    expect(myList.render()).to.equal("<ul><li class='completed_true'><input class='check-box' type='checkbox' checked = 'checked' onchange=\"changeCheckedStatus.call(this, this.parentElement.getAttribute('data-idx'), document.querySelectorAll('.check-box')[this.parentElement.getAttribute('data-idx')])\")><span>Organic Honey</span> <span class='desc'>Wild Honey from the Amazon</span><button class='x-button' onclick=\"removeItemButtonClicked(this.parentElement.getAttribute('data-idx'))\">[ x ]</button></li><li class='completed_false'><input class='check-box' type='checkbox' onchange=\"changeCheckedStatus.call(this, this.parentElement.getAttribute('data-idx'), document.querySelectorAll('.check-box')[this.parentElement.getAttribute('data-idx')])\")><span>Tulips</span> <span class='desc'>Tiptoe through me~</span><button class='x-button' onclick=\"removeItemButtonClicked(this.parentElement.getAttribute('data-idx'))\">[ x ]</button></li></ul>");
   });
 
 });
