@@ -29,12 +29,15 @@ describe('ShoppingListItem', () => {
     myItem.check();
     expect(myItem.check).to.be.a('function');
     expect(myItem.is_done).to.be.true;
+    console.log(myItem.render());
+    expect(myItem.render()).equal("<li class='completed_true'><input class='check-box' type='checkbox' checked = 'checked' onchange=\"changeCheckedStatus.call(this, this.parentElement.getAttribute('data-idx'), document.querySelectorAll('.check-box')[this.parentElement.getAttribute('data-idx')])\")><span>apple</span> <span class='desc'>the fruit</span><button class='x-button' onclick=\"removeItemButtonClicked(this.parentElement.getAttribute('data-idx'))\">[ x ]</button></li>");
   });
 
   it('should have \'uncheck\' method that sets \'is_done\' to false', () => {
     myItem.uncheck();
     expect(myItem.uncheck).to.be.a('function');
     expect(myItem.is_done).to.be.false;
+    expect(myItem.render()).equal("<li class='completed_false'><input class='check-box' type='checkbox' onchange=\"changeCheckedStatus.call(this, this.parentElement.getAttribute('data-idx'), document.querySelectorAll('.check-box')[this.parentElement.getAttribute('data-idx')])\")><span>apple</span> <span class='desc'>the fruit</span><button class='x-button' onclick=\"removeItemButtonClicked(this.parentElement.getAttribute('data-idx'))\">[ x ]</button></li>");
   });
 
   it('should have \'render\' method that returns html formatting string', () => {
