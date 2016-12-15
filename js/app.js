@@ -16,11 +16,13 @@ function removeItemButtonClicked(idx) {
 }
 
 function addToShoppingList() {
-  let item = document.getElementById('item-name').value;
-  let description = document.getElementById('item-desc').value;
-  let newShoppingListItem = new ShoppingListItem(item, description);
+  let item = document.getElementById('item-name');
+  let description = document.getElementById('item-desc');
+  let newShoppingListItem = new ShoppingListItem(item.value, description.value);
   theShoppingList.addItem(newShoppingListItem);
   reRender();
+  item.value = "";
+  description.value = "";
 }
 
 function reRender() {
@@ -28,8 +30,6 @@ function reRender() {
   let liElements = document.querySelectorAll('li');
   for ( let i = 0; i < liElements.length; i ++ ) {
     liElements[i].dataset.idx = i;
-  }
-  for(let i = 0; i < theShoppingList.items.length; i++) {
     liElements[i].style.textDecoration = (theShoppingList.items[i].is_done) ? ('line-through') : ('none');
   }
 }
